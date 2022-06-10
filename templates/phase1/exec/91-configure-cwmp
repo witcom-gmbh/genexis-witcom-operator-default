@@ -1,0 +1,6 @@
+#!/bin/sh
+
+uci -q set cwmp.acs.passwd="CWMP_ACS_PASSWORD"
+uci -q set cwmp.cpe.passwd="CWMP_CPE_PASSWORD"
+uci commit cwmp
+

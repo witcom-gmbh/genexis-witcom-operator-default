@@ -1,0 +1,26 @@
+#!/bin/sh
+
+#safety first
+chmod +x /usr/bin/getfirstlanport
+FIRSTLANPORT="$(getfirstlanport)"
+
+#delete existing configuration
+#lan interface
+uci -q get network.lan >/dev/null && uci -q delete network.lan
+#you never know...
+uci -q get network.customer >/dev/null && uci -q delete network.customer
+uci commit network
+
+#lan dhcp-server
+uci -q get dhcp.lan >/dev/null && uci -q delete dhcp.lan
+uci commit dhcp
+
+#create "customer" interface on first lan-port
+uci -q set network.customer=interface
+uci -q set network.customer.proto="static"
+#uci -q set network.customer.type="bridge"
+uci -q set network.customer.ifname="$FIRSTLANPORT"
+uci -q set network.customer.ipaddr="192.168.1.1/24"
+
+uci commit network
+
