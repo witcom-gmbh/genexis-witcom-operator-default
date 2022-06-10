@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.2] - 2022-06-10
+
+### Changed
+
+- Entfernen von Factory-Default LAN-Interface br_lan
+
 ## [1.0.1] - 2022-06-10
 
 ### Changed

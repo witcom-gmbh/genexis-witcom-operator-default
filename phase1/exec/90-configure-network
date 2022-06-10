@@ -7,6 +7,7 @@ FIRSTLANPORT="$(getfirstlanport)"
 #delete existing configuration
 #lan interface
 uci -q get network.lan >/dev/null && uci -q delete network.lan
+uci -q get network.br_lan >/dev/null && uci -q delete network.br_lan
 #you never know...
 uci -q get network.customer >/dev/null && uci -q delete network.customer
 uci commit network
