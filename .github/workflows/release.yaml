@@ -1,0 +1,35 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'main'
+
+jobs:
+  build_release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    name: build_release
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: version
+        run: echo "::set-output name=version::$(cat ./release.version)"
+        id: version          
+      - name: build artifacts
+        env:
+          DEVICE_PASSWORD: ${{ secrets.DEVICE_PASSWORD }} 
+          CWMP_CPE_PASSWORD: ${{ secrets.CWMP_CPE_PASSWORD }} 
+          CWMP_ACS_PASSWORD: ${{ secrets.CWMP_ACS_PASSWORD }} 
+        run: make opdefaults_build
+      - name: create-release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifactErrorsFailBuild: true 
+          artifacts: "witcom-opdefaults-${{ steps.version.outputs.version }}.tar.gz"
+          #tag: "v${{ steps.version.outputs.version }}"
+          bodyFile: "CHANGELOG.md"
+          token: ${{ secrets.GITHUB_TOKEN }}        
