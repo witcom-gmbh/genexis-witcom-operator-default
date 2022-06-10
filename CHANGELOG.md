@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1] - 2022-06-10
+
+### Changed
+
+- README Clean-Up
+- Fixes in Release-Action
+
 ## [1.0.0] - 2022-06-09
 
 ### Added

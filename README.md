@@ -23,15 +23,3 @@ EXEC-Files die Kenwörter/Secrets/etc.) enthalten werden während des RELEASE-Pr
 
 Beim Build-Prozess werden daraus die finalen Exec-Files erzeugt
 
-
-Paket erstellen
-
- tar -cf witcom-opdefaults-DATUM-LFD-NUMMER.tar *
- gzip witcom-opdefaults-DATUM-LFD-NUMMER.tar
-
-Was macht es
-
-* Kennwoerter aendern
-* SSH Public-Keys importieren
-* Firewall-Regeln fuer WiTCOM Zugriff
-* Netzwerk-konfig setzen auf 192.168.1.1/24 erster LAN-Port

@@ -27,7 +27,7 @@ jobs:
       - name: create-release
         uses: ncipollo/release-action@v1
         with:
-          allowUpdates: true
+          allowUpdates: false
           artifactErrorsFailBuild: true 
           artifacts: "witcom-opdefaults-${{ steps.version.outputs.version }}.tar.gz"
           #tag: "v${{ steps.version.outputs.version }}"
