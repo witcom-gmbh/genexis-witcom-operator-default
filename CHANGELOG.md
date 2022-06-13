@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.0] - 2022-06-13
+
+### Added
+
+- Installation von prometheus-node-exporter-lua
+
+### Changed
+
+- Helper-Scripts werden nun ueber Package witcom-genxos-helper installiert
+
 ## [1.0.2] - 2022-06-10
 
 ### Changed

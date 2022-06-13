@@ -1,4 +1,0 @@
-#!/bin/sh
-export PORTNAMES="$(db -q get hw.board.ethernetPortNames)"
-export PORTORDER="$(db -q get hw.board.ethernetPortOrder)"
-/usr/bin/getfirstlanport.lua
